@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <style>
+       /* Set the size of the div element that contains the map */
+      #map {
+        height: 400px;  /* The height is 400 pixels */
+        width: 100%;  /* The width is the width of the web page */
+       }
+    </style>
+  </head>
+  <body>    
+
+<div class="contact_page">  
+<h1 id="page_title">Contact Us</h1>
+
+
+<% provide(:title, "Contact") %>
+<p>B-Beer<br/>
+   33 Henry Street,<br/>
+   Co. Dublin<br/>
+   (01) 222 00000<br/>
+   contact@bbeer.ie</p>
+
+<div class="skinny_wrapper wrapper_padding">
+    <%= form_for @contact do |f| %>
+        <%= f.label :name %><br>
+        <%= f.text_field :name, required: true %>
+        
+        <br>
+        
+        <%= f.label :email %><br>
+        <%= f.email_field :email, required: true %>
+        
+        <br>
+        
+        <%= f.label :message %><br>
+        <%= f.text_area :message, as: :text %>
+        
+        <div class="hidden">
+            <%= f.label :nickname %><br>
+            <%= f.text_field :nickname, hint: 'leave this field blanck' %>
+        </div>
+        </br>
+        </br>
+        
+        <%= f.submit 'Send Message', class: "button" %>
+    <% end %>
+</div>
+</div>
+</br>
+    <div id="map"></div>
+    <script>
+// Initialize and add the map
+function initMap() {
+  // The location of Uluru
+  var uluru = {lat: 53.345969, lng: -6.274552};
+  // The map, centered at Uluru
+  var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 10, center: uluru});
+  // The marker, positioned at Uluru
+  var marker = new google.maps.Marker({position: uluru, map: map});
+}
+    </script>
+    <!--Load the API from the specified URL
+    * The async attribute allows the browser to render the page while the API loads
+    * The key parameter will contain your own API key (which is not needed for this tutorial)
+    * The callback parameter executes the initMap() function
+    -->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBW3JwO8kVQYVOxdr43iWB5qiq9GYyk2Io&callback=initMap">
+    </script>
+  </body>
+</html>

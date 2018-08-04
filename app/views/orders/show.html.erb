@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Order date:</strong>
+  <%= @order.order_date %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @order.user %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @order.status %>
+</p>
+
+<% if current_user.try(:admin?) %>
+  <%= link_to 'Edit', edit_order_path(@order) %> |
+  <%= link_to 'Back', orders_path %>
+<% end %>
+
+<% @orderitems.each do |orderitem| %>
+  <%= orderitem.title%> x <%= orderitem.quantity %>
+    <br>
+<% end %>

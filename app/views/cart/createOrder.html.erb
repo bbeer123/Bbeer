@@ -1,0 +1,92 @@
+<div id="itemsContainer">
+
+<h1>Thank You</h1>
+<br>
+<p>You have just Created an order</p>
+<p>We are sending your order to: 
+<%= current_user.address %> - <%= current_user.city %></p>
+<p></p>If you want to change your address, please click in the Perfil icon and do it!</p>
+</div>
+
+
+<table id="customers">
+    <tr>
+        <% @orders.limit(1).order(id: :desc).each do |order| %>
+        
+        <td>Order just placed reference: <%= order.id %></td>
+        
+        <% @orderNum = order.id %>
+        <% end %>
+    </tr>
+  
+</table>
+
+
+<table id="customers">
+    
+    
+    
+     <% @total = 0 %>
+    <% @orderitems.each do |id,quantity| %>
+      <tr>
+        <% item = Orderitem.find_by_id(id) %>
+       
+        <td><%= item.title %></td>
+        <td><%= item.quantity %></td>
+       <td><%=number_to_currency(item.price, :unit => "€")%></td> 
+       <td><%= number_to_currency(item.quantity * item.price, :unit => "€") %></td>
+       </tr>
+       
+       <% timx = (item.quantity * item.price)%>  
+     <% quantity = item.quantity %>
+     
+      <% @total += timx %>
+      
+      
+      
+      
+      </tr>
+    <% end %>
+    
+    
+    <tr>
+        <% shipping = 0 %>
+        <% @overall = shipping + @total %>
+        
+       <td>Sub Total: &euro; <%= @total %></td>
+       <td>Shipping: €0</td>
+       <td>Order Total: &euro; <%= @overall %></td>
+      </tr>
+      
+        
+</table>
+
+   <tr>
+          
+     
+      
+      <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+    <!-- adicionar ordem id e ordem value>
+  <!-- Identify your business so that you can collect the payments. -->
+  
+    <a href="/thanks" class="button">Pay Now</a>
+    
+  <!-- Specify a Buy Now button. -->
+  <input type="hidden" name="cmd" value="_xclick">
+  <input type="hidden" name="business" value="carlos.acbarboza-facilitator-1@gmail.com">
+  <!-- Specify details about the item that buyers will purchase. -->
+  <input type="hidden" name="item_name" value="BBeer Order Number <%= @orderNum %>">  
+  <input type="hidden" name="amount" value="<%= @overall %>">
+  <input type="hidden" name="currency_code" value="EUR">
+
+  <!-- Prompt buyers to enter the quantities they want. -->
+  <input type="hidden" name="undefined_quantity" value="<%= @quantity %>">
+
+  <!-- Display the payment button. -->
+  <input type="image" name="submit" border="0" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" alt="Buy Now">
+  <img alt="" border="0" width="1" height="1"  src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+  <input type="hidden" name="return" value="https://b4dc739798d648fa8f589b728f129c3f.vfs.cloud9.eu-west-1.amazonaws.com/thanks" >
+
+
+</form>
+ </tr>

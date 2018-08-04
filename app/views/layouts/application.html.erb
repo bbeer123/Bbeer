@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield(:title) %> | B-Beer</title>
+    <%= csrf_meta_tags %>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    
+    <div id="logo">
+    <a href="/"><img src="/assets/Site/B-Beer2.png" /></a>
+    </div>
+    
+    <div id="profile">
+    <ul>
+      
+      <% unless @@qtys ||= 0 && @@totals ||= 0 %>
+        <% @qt = 0 %>
+        <% @to = 0 %>
+      <% else %>
+        <% @qt = @@qtys %>
+        <% @to = @@totals %>
+      <% end %>
+      
+      <% if user_signed_in? %>
+      <li>You added <%= @qt %> items in your cart. Order Total: &euro; <%= @to %><img src="../assets/Site/cart2.png"  alt="Cart" /></li>
+       
+		  <li>Profile <a href="/profile"><img src="../assets/Site/profile.png"  alt="Profile" /></a></li>
+    
+      <li>Hi <%= current_user.name %>. Thanks for coming back! Your last visit was <%= current_user.last_sign_in_at %></li>
+    <% end %>
+  
+    </ul>
+    </div>
+    
+    
+    <div class="container">
+    <header id="header">
+   
+    
+    
+    
+    
+    <div id="socialMedia">
+     <ul>
+			<li><a href="https://www.facebook.com/"><img src="../../assets/Site/iconFacebook.jpg"  alt="Facebook icon" /></a></li>
+			<li><a href="https://www.instagram.com/"><img src="../../assets/Site/iconInstagram.jpg" alt="Instagram icon" /></a></li>
+			<li><a href="https://www.pinterest.ie/"><img src="../../assets/Site/iconPinterest.jpg"  alt="Pinterest icon" /></a></li>
+			<li><a href="https://twitter.com/"><img src="../../assets/Site/iconTwitter.jpg"  alt="Twitter icon" /></a></li>
+			 
+		  </ul>
+    </div>
+	
+	
+    <div id="menu">      
+      <ul>
+        <li><%= link_to "Home",  "/" %></li>
+        <li><%= link_to "Products",  "/items" %></li>
+        <li><%= link_to "About Us", "/about" %></li>
+        <li><%= link_to "Contact", "/contacts/new" %></li>
+        <li><%= link_to "View Cart", "/cart" %></li>
+        <%#<li><%= link_to "Log In",   login_path %><%#</li>%>
+        <%#<li><%= link_to "Log Out",   logout_path %><%#</li>%>
+  
+  
+  
+<% if user_signed_in? %>
+                 <li><a href="#">You are Logged</a></li>
+                 <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
+          <% else %>
+                 <li><%= link_to 'Register', new_user_registration_path %></li> 
+                 <li><%= link_to 'Sign in', new_user_session_path %></li>
+          <% end %>
+
+        
+        
+        
+        
+        
+        
+        
+        
+      </ul>
+      
+      
+    </header>
+    </div>
+    
+    <div id="banner"> </div>
+    <%= yield %>
+</br>
+</br>
+<%if current_user.try(:admin?) %>
+<%= link_to "View Orders", orders_path, :class => "button", :role => "button" %>
+<% end %>
+</br>
+
+<footer class="foot">
+
+
+</li><p> &copy; Untitled. All rights reserved. | Photos and Design by B-Beer</p>
+
+
+</footer>
+
+    
+  </body>
+</html>

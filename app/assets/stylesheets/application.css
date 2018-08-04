@@ -1,0 +1,301 @@
+.container {
+		overflow: hidden;
+		margin: 0em auto;
+		width: 80%;
+	}
+	
+body {
+    width: 100%;
+		
+		background: #FFF;
+		font-family: 'Roboto Condensed', sans-serif;
+		font-size: 1.2vw;
+		font-weight: 300;
+		color: #696969;
+}
+
+
+#header	{
+		position: relative;
+		padding: 5em 0em;
+	}
+
+/**** Menu ****/
+	#menu	{
+		position: absolute;
+		top: 2 em;
+		right: 0;
+		bottom: 1em;
+	}
+	
+	#menu ul	{
+		display: inline-block;
+	}
+	
+	#menu li	{
+		display: block;
+		float: left;
+		text-align: center;
+	}
+	
+		#menu li:before		{    /**This code give the spaces between each button of our menu.  **/
+			content: " ";
+			padding: 1em 1.5em;
+			font-weight: 700;
+			color: rgba(0,0,0,.6);
+		}
+	
+	#menu li a, #menu li span {
+		text-decoration: none;
+		text-transform: uppercase;
+		font-weight: 800;
+		font-size: 3 em;
+		color: rgba(0,0,0,.4);
+	}
+	
+	#menu li:hover a, #menu li.active a, #menu li.active span { /**This code change the colors of the buttons when our visitors hover the cursor about the buttons. Code found in www.w3schools.com **/
+		color: rgba(0,0,0,.6);
+	}
+	
+	#menu .current_page_item a {
+		color: rgba(0,0,0,.8);
+	}
+
+/**** Banner ****/
+	#banner {
+		width: 100%;
+		overflow: hidden;
+		padding: 9em 0em;
+		background: url("/assets/Site/banner.jpg") no-repeat center; /** this code we got on www.w3schools.com and makes the first imagem as a banner!**/
+		background-size: cover;
+	}
+
+#logo {
+		position: absolute; 
+		top: 3em;
+		left: 2em;
+	}
+/**** Social Media Buttons ****/
+
+	#socialMedia {
+		position: absolute;
+		top: 1em;
+		right: 0;
+	}
+	
+	#socialMedia ul	{
+		display: inline-block;
+	}
+	
+	#socialMedia li	{
+		display: block;
+		float: right;
+	}
+	
+		#socialMedia li:before	{
+			content: " ";
+			padding: 1em 1.5em;
+		}
+		
+		
+/*** Profile Buttons ***/
+
+	#profile {
+		overflow: hidden;
+		margin-top: 0 em;
+	}
+	
+	#profile ul	{
+		display: inline-block;
+		float: right;
+		margin-right: 8em;
+	}
+	
+	#profile li	{
+		display: block;
+		float: right;
+	}
+	
+		#profile li:before	{
+			content: " ";
+			padding: 1em 1.5em;
+		}
+		
+.mainCont { 
+    
+    margin: auto;
+    width:80%;
+    border: 3px solid #b3e0ff;
+    padding: 10px;
+    text-align: center;
+}
+
+.welcomeIm {width: 30%;}
+
+
+.foot {
+  	overflow: hidden;
+	background-color: #000000;
+	margin-top: 0 em;
+	padding-top: 2em;
+	padding-bottom: 2em;
+}
+	
+.foot p{
+	letter-spacing: 0.20em;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 0.85em;
+	color: #FFFFFF ;
+}
+
+
+#itemsContainer {
+    width: 100%;
+    text-align: center;
+    
+    
+}
+
+.searchContainer{
+		overflow: hidden;
+		width: 100%;
+		display: inline-block;
+		margin-top: 0 em;
+		padding-top: 0.8em;
+		padding-bottom: 0.8em;
+		background: black;
+		letter-spacing: 0.15em;
+		text-align: center;
+		text-decoration: none;
+		text-transform: uppercase;
+		font-size: 0.95em;
+		color: #FFF;
+}
+
+#itemsContainer h1 {
+   display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#delivery {
+	overflow: hidden;
+	width: 100%;
+	padding: 2em 2em;
+
+}
+	
+
+.itemhols {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    display: inline-block;
+    width: 22%;
+    padding:10px;
+    min-height: 300px;
+   
+}
+
+
+.itemhols h1 {
+   display: block;
+    color: #696969;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px
+    
+}
+
+
+.itemhols p {
+   display: block;
+    color: #696969;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 16px
+    
+}
+
+
+
+.itemholsIm {
+    width: 30%; 
+    margin-left: auto; 
+    margin-right: auto; 
+    display: block;
+    
+}
+
+
+.button {
+    background-color: #FF8C00;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+
+#customers {
+    font-family: 'Source Sans Pro', sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+
+
+.hidden{
+	display: none;
+}
+
+.about h1 {
+	text-align: center;
+}
+
+.about p{
+	margin: 0em auto;
+	width: 80%;
+	padding-bottom: 50px;
+}
+.map{
+	text-align: center;
+}
+
+.register, .sign_in, .cart, .search, .new_order, .profile, .contact_page {
+	text-align: center;
+	
+}
+.link-test li:hover a, link-test li.active a, link-test li.active span {
+	color: rgba(0,0,0,.6);
+}
+
+/* .signin li:hover a, .signin li.active a, .signin li.active span{
+	color: rgba(0,0,0,.6);
+}*/

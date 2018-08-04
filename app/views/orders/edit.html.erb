@@ -1,0 +1,8 @@
+<h1>Editing Order</h1>
+
+<%= render 'form', order: @order %>
+
+<%= link_to 'Show', @order %> |
+<% if current_user.try(:admin?) %>
+    <%= link_to 'Back', orders_path %>
+<% end %>
